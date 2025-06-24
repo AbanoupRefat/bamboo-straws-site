@@ -16,8 +16,6 @@ body {
 
 .hero-section {
     height: 100vh;
-    /*background: linear-gradient(135deg, rgba(139, 195, 74, 0.8), rgba(104, 159, 56, 0.9)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="blur"><feGaussianBlur stdDeviation="3"/></filter></defs><rect width="1200" height="800" fill="%23689F38"/><circle cx="200" cy="150" r="100" fill="%23AED581" opacity="0.6" filter="url(%23blur)"/><circle cx="800" cy="200" r="150" fill="%23C5E1A5" opacity="0.4" filter="url(%23blur)"/><circle cx="1000" cy="400" r="120" fill="%23DCEDC8" opacity="0.5" filter="url(%23blur)"/><circle cx="300" cy="600" r="80" fill="%23AED581" opacity="0.7" filter="url(%23blur)"/></svg>');*/
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -56,6 +54,65 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Language Selector Styles */
+.language-selector {
+    position: relative;
+    margin-right: 20px;
+}
+
+.language-dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 8px 35px 8px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.language-dropdown:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.language-dropdown option {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* For scrolled navbar state */
+.navbar.scrolled .language-dropdown {
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled .language-dropdown:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Dropdown arrow */
+.language-selector::after {
+    content: "▼";
+    font-size: 10px;
+    color: white;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.navbar.scrolled .language-selector::after {
+    color: #333;
 }
 
 .logo {
@@ -897,3 +954,187 @@ body {
 .product-card:nth-child(2) { animation-delay: 0.3s; }
 .product-card:nth-child(3) { animation-delay: 0.5s; }
 .product-card:nth-child(4) { animation-delay: 0.7s; }
+
+/* Base Styles */
+:root {
+    --olive-green: #6B8E23;
+    --light-olive: #9AB973;
+    --dark-olive: #556B2F;
+    --cream: #F5F5DC;
+    --white: #FFFFFF;
+    --black: #333333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cream);
+    color: var(--black);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Section */
+.about-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-container {
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--olive-green), var(--light-olive));
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--olive-green);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.divider {
+    height: 3px;
+    width: 100px;
+    background-color: var(--light-olive);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.about-content {
+    color: var(--olive-green);
+}
+
+.intro {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.highlight {
+    color: var(--dark-olive);
+    font-weight: 700;
+}
+
+.about-message {
+    margin: 2.5rem 0;
+    padding: 2rem;
+    background-color: rgba(154, 185, 115, 0.1);
+    border-radius: 10px;
+    border-right: 4px solid var(--olive-green);
+}
+
+.message-title {
+    color: var(--dark-olive);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.message-list {
+    list-style: none;
+    padding: 0;
+}
+
+.message-item {
+    margin-bottom: 1rem;
+    padding-right: 1.5rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.message-item i {
+    color: var(--olive-green);
+    margin-left: 0.5rem;
+}
+
+.about-footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Animations */
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-grow {
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: grow 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes grow {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 2rem 1rem;
+    }
+    
+    .about-container {
+        padding: 2rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .intro {
+        font-size: 1rem;
+    }
+    
+    .message-title {
+        font-size: 1.3rem;
+    }
+    
+    .message-item {
+        font-size: 1rem;
+    }
+}
